@@ -41,7 +41,7 @@ APIs are often less visible than web interfaces and may receive less security te
 
 ## 4. Cloud Infrastructure & Storage Configuration
 **Threat:**  
-Misconfigured AWS services—such as overly permissive IAM roles, publicly accessible S3 buckets, or exposed RDS instances—could allow unauthorized access to backend systems or stored data.
+Misconfigured AWS services such as - overly permissive IAM roles, publicly accessible S3 buckets, or exposed RDS instances could allow unauthorized access to backend systems or stored data.
 
 **Impact:**  
 Large-scale data breaches, complete database compromise, and long-term attacker persistence within the cloud environment.
