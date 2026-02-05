@@ -1,6 +1,6 @@
-# Cybersecurity Intern Assessment – Emmanuel Ilerioluwa Ajayi
+# Cybersecurity Intern Assessment – Emmanuel Ajayi
 
-**Candidate:** Emmanuel Ilerioluwa Ajayi  
+**Candidate:** Emmanuel Ajayi  
 **Email:** ajayiemmy241@icloud.com  
 **Submission Date:** 5th February, 2026
 
