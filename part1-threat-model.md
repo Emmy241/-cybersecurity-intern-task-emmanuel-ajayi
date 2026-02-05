@@ -5,7 +5,6 @@ ClientHub is a multi-tenant, cloud-based CRM platform used by small businesses t
 
 The following analysis focuses on realistic, high-impact risks that could materially affect ClientHub’s ability to onboard and retain enterprise clients.
 
----
 
 ## 1. Authentication & Session Management
 **Threat:**  
@@ -17,7 +16,6 @@ Compromise of user accounts (including admins or managers) could lead to unautho
 **Likelihood:** Medium  
 Credential-based attacks are common against SaaS platforms, especially those with a growing user base and inconsistent user password hygiene.
 
----
 
 ## 2. Authorization & Multi-Tenancy Boundaries (IDOR)
 **Threat:**  
@@ -29,7 +27,6 @@ Cross-tenant data exposure directly violates confidentiality guarantees, potenti
 **Likelihood:** High  
 Authorization flaws in multi-tenant systems are common, particularly in platforms that evolved quickly and rely on client-side parameters or incomplete server-side access checks.
 
----
 
 ## 3. API Security
 **Threat:**  
@@ -41,7 +38,6 @@ Attackers could automate data extraction, abuse third-party integrations, or enu
 **Likelihood:** Medium  
 APIs are often less visible than web interfaces and may receive less security testing, increasing their attractiveness as an attack vector.
 
----
 
 ## 4. Cloud Infrastructure & Storage Configuration
 **Threat:**  
@@ -53,7 +49,6 @@ Large-scale data breaches, complete database compromise, and long-term attacker 
 **Likelihood:** Low to Medium  
 While AWS provides secure defaults, configuration errors remain a leading cause of cloud security incidents, particularly in smaller or fast-growing teams.
 
----
 
 ## 5. Mobile Application Security
 **Threat:**  
@@ -65,7 +60,6 @@ Unauthorized API access, leakage of customer data from compromised or lost devic
 **Likelihood:** Medium  
 Mobile applications are frequently reverse-engineered, especially when used by distributed field staff.
 
----
 
 ## Top 3 Risks (Prioritized)
 
@@ -73,7 +67,6 @@ Mobile applications are frequently reverse-engineered, especially when used by d
 2. **Authentication & Session Management**
 3. **API Security**
 
----
 
 ## Prioritization Logic
 
