@@ -4,7 +4,6 @@
 **Email:** ajayiemmy241@icloud.com  
 **Submission Date:** 5th February, 2026
 
----
 
 ## Task Completion
 
@@ -13,8 +12,7 @@
 - [x] Part 3: Incident Response Plan  
 - [x] AI Usage Documentation  
 
----
 
 ## Brief Note
 
-My approach focused on identifying realistic, high-impact security risks relevant to a growing multi-tenant SaaS platform. I prioritized attack surfaces that pose the greatest risk to data confidentiality, platform integrity, and enterprise trust, and approached each task from both attacker and defender perspectives. The recommendations emphasize practical, implementable controls aligned with real-world engineering and operational constraints.
+This assessment was approached from a real-world security perspective, focusing on identifying high-impact risks relevant to a multi-tenant SaaS platform preparing for enterprise adoption. Emphasis was placed on practical threat modeling, clear technical reasoning, and realistic defensive and incident response strategies aligned with how security teams operate in production environments
