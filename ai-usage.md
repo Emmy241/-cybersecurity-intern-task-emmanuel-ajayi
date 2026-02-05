@@ -1,21 +1,20 @@
 # AI Usage Documentation
 
-AI tools were used in a limited and supportive capacity during this assessment.
+AI tools were used in a limited capacity as a drafting and clarity aid during this assessment.
 
-## Where AI Was Used
-- Assisting with structuring and refining written explanations for clarity and professionalism
-- Reviewing wording to ensure technical accuracy and clear communication
+## How AI Was Used
+- To help refine wording and structure for clarity and professionalism.
+- To review drafts for coherence and readability.
+
+## What Was Not Delegated to AI
+- Threat identification and prioritization decisions.
+- Technical reasoning and attack flow analysis.
+- Security control selection, trade-offs, and validation steps.
+- Incident response logic and investigation methodology.
 
 ## Example Prompts Used
-- "Explain insecure API design risks in a SaaS platform"
-- "Outline incident response steps for a data exposure vulnerability"
+- “Help rewrite this security analysis for clarity and professional tone.”
+- “Review this incident response section for structure and completeness.”
 
-## How AI Output Was Handled
-- Generic responses were adapted to fit the specific ClientHub architecture and scenario
-- Overly abstract or non-applicable content was rejected
-- All risk selection, prioritization, and mitigation decisions were based on independent analysis
-
-## Original Analysis Added
-- Attack surface selection and prioritization based on ClientHub’s system design
-- Detailed API abuse scenarios aligned with realistic attacker behavior
-- Incident response steps reflecting real operational and investigative constraints
+## Original Contribution
+All security judgments, prioritization logic, and technical explanations were independently developed and reviewed to ensure they accurately reflect realistic security risks and operational practices.
