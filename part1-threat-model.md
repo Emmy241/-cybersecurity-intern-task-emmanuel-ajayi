@@ -1,86 +1,83 @@
-## Part 1: Threat Model & Attack Surface Analysis
+# Part 1: Threat Model & Attack Surface Analysis
 
-### System Context
-
-ClientHub is a multi-tenant, cloud-hosted CRM platform handling sensitive customer and business data for small to medium enterprises. The platform includes a web dashboard, mobile application, API backend, and AWS-hosted infrastructure supporting multiple user roles and integrations.
-
-The following attack surfaces represent the most critical risks to confidentiality, integrity, and availability of the system.
+## System Context
+ClientHub is a cloud-based, multi-tenant CRM platform used by small businesses to manage customer data, appointments, and communications. The system consists of a web dashboard, mobile application, API backend, and AWS-hosted infrastructure. As the platform prepares to onboard enterprise clients, identifying realistic, high-impact security risks is critical.
 
 ---
 
-## Attack Surfaces
+## 1. Authentication & Identity
 
-### 1. Authentication & Session Management
+**Threat**  
+Weak authentication mechanisms such as lack of enforced multi-factor authentication (MFA), insecure session management, or vulnerable password recovery flows could allow attackers to compromise user accounts.
 
-**Threat:**  
-Weak authentication controls (e.g., insufficient MFA enforcement, insecure session handling, token reuse) could allow attackers to hijack user accounts through credential stuffing, phishing, or session fixation.
+**Impact**  
+Account compromise could result in unauthorized access to sensitive customer data, abuse of administrative privileges, and further attacks across the platform.
 
-**Impact:**  
-Unauthorized access to customer data, account takeover of admins or managers, and potential lateral access across organizations.
-
-**Likelihood:** Medium  
-Credential-based attacks are common, especially against SaaS platforms with many users and varying security maturity.
+**Likelihood**  
+Medium — Credential stuffing, phishing, and password reuse are common against SaaS platforms.
 
 ---
 
-### 2. Authorization & Multi-Tenancy Boundaries (IDOR)
+## 2. Web Application (Frontend)
 
-**Threat:**  
-Improper authorization checks could allow users to access data belonging to other companies by manipulating identifiers (e.g., `company_id`, `customer_id`).
+**Threat**  
+Over-reliance on client-side logic, insufficient input validation, or weak protections against common web vulnerabilities (e.g., XSS, CSRF) could allow attackers to manipulate application behavior or hijack authenticated user sessions.
 
-**Impact:**  
-Cross-tenant data exposure, violating confidentiality and potentially breaching data protection regulations. High reputational and legal risk.
+**Impact**  
+Unauthorized actions performed on behalf of users, session hijacking, and potential data manipulation.
 
-**Likelihood:** High  
-Multi-tenant authorization flaws are common in growing platforms and are often missed during early development.
-
----
-
-### 3. API Security
-
-**Threat:**  
-Insecure APIs (missing object-level authorization, excessive data exposure, weak rate limiting) could be abused by authenticated or unauthenticated attackers.
-
-**Impact:**  
-Bulk data extraction, abuse of third-party integrations, automation of attacks at scale.
-
-**Likelihood:** Medium  
-APIs are frequently targeted and often less monitored than web interfaces.
+**Likelihood**  
+Medium — Frontend vulnerabilities remain common, particularly in rapidly evolving applications.
 
 ---
 
-### 4. Cloud Storage & Infrastructure Configuration
+## 3. API Security
 
-**Threat:**  
-Misconfigured AWS resources (e.g., public S3 buckets, overly permissive IAM roles, exposed RDS access) could expose sensitive data.
+**Threat**  
+APIs may lack strict authentication enforcement, rate limiting, or request validation, enabling attackers to abuse endpoints, extract excessive data, or automate attacks at scale.
 
-**Impact:**  
-Mass data leakage, complete database compromise, long-term persistence by attackers.
+**Impact**  
+Large-scale data exposure, abuse of third-party integrations, and disruption of core platform services.
 
-**Likelihood:** Low to Medium  
-AWS provides strong defaults, but misconfigurations remain a leading cause of cloud breaches.
+**Likelihood**  
+Medium to High — APIs are high-value targets and often less visible than web interfaces.
 
 ---
 
-### 5. Mobile Application Security
+## 4. Cloud Infrastructure (AWS)
 
-**Threat:**  
-Insecure local storage, improper certificate validation, or exposed API keys in the mobile app could enable reverse engineering and abuse.
+**Threat**  
+Misconfigured AWS resources such as overly permissive IAM roles, public S3 buckets, or improperly secured databases could expose sensitive data or allow infrastructure-level compromise.
 
-**Impact:**  
-Unauthorized API access, data leakage from lost or compromised devices.
+**Impact**  
+Mass data leakage, full system compromise, long-term attacker persistence, and regulatory violations.
 
-**Likelihood:** Medium  
-Mobile apps are frequently reverse-engineered, especially when used by field staff.
+**Likelihood**  
+Low to Medium — Cloud misconfigurations remain a leading cause of security incidents despite strong provider defaults.
+
+---
+
+## 5. Email & Communication Features
+
+**Threat**  
+Email functionality could be abused for phishing, spoofing, or unauthorized data disclosure if domain authentication (SPF, DKIM, DMARC) and sending controls are weak.
+
+**Impact**  
+Brand impersonation, erosion of customer trust, and reputational damage.
+
+**Likelihood**  
+Medium — Email-based abuse is common and frequently underestimated.
 
 ---
 
 ## Top 3 Risks (Prioritized)
 
-1. **Authorization & Multi-Tenancy Boundaries (IDOR)**
-2. **Authentication & Session Management**
-3. **API Security**
+1. API Security  
+2. Authentication & Identity  
+3. Cloud Infrastructure (AWS)
 
-### Prioritization Logic
+---
 
-These risks were prioritized based on a combination of impact severity and likelihood of exploitation. Authorization flaws directly undermine tenant isolation, which is critical for enterprise trust. Authentication and API security follow closely due to their exposure surface and potential for large-scale abuse. Together, these risks represent the most immediate threats to ClientHub's readiness for enterprise onboarding.
+## Prioritization Logic
+
+The top risks were selected based on their combined potential impact and likelihood. APIs and authentication systems directly expose core platform functionality and sensitive data, while cloud infrastructure weaknesses can result in catastrophic compromise. These risks present the most immediate threats to ClientHub’s enterprise readiness.
