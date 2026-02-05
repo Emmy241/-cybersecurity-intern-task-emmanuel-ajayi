@@ -15,4 +15,6 @@
 
 ## Brief Note
 
-This assessment was approached from a real-world security perspective, focusing on identifying high-impact risks relevant to a multi-tenant SaaS platform preparing for enterprise adoption. Emphasis was placed on practical threat modeling, clear technical reasoning, and realistic defensive and incident response strategies aligned with how security teams operate in production environments
+## Brief Note
+
+This assessment was approached from a real-world security perspective, focusing on risks that could materially impact the confidentiality, integrity, and availability of a multi-tenant SaaS platform preparing for enterprise adoption. The analysis prioritizes realistic attack scenarios, practical defensive controls, and structured incident response processes aligned with how modern security teams operate in production environments.
