@@ -1,11 +1,10 @@
 # Part 3: Incident Response Plan
 
-## Incident: Cross-Tenant Data Access via URL Parameter Manipulation
+## Incident: Cross-Tenant Data Access via URL Parameter Manipulation - IDOR
 
 ### Incident Summary
 A support agent reported being able to view customer records belonging to another company by modifying a `company_id` parameter in the web dashboard URL. This behavior indicates a potential data exposure incident affecting tenant isolation.
 
----
 
 ## 1. Immediate Actions (First 1 Hour)
 
@@ -14,8 +13,7 @@ A support agent reported being able to view customer records belonging to anothe
 3. Preserve application, API, and database logs to maintain evidence integrity.
 4. Notify engineering, security, and leadership teams.
 5. Monitor for additional suspicious access patterns.
-
----
+   
 
 ## 2. Investigation Checklist
 
@@ -32,7 +30,6 @@ A support agent reported being able to view customer records belonging to anothe
 - Correlate user IDs, IP addresses, and timestamps.
 - Assess whether access patterns indicate manual or automated exploitation.
 
----
 
 ## 3. Root Cause Analysis
 
@@ -44,7 +41,6 @@ A support agent reported being able to view customer records belonging to anothe
 ### Most Likely Cause
 Missing server-side object-level authorization checks, where the backend fails to verify that requested resources belong to the authenticated user’s tenant.
 
----
 
 ## 4. Fix Validation
 
@@ -55,9 +51,7 @@ Missing server-side object-level authorization checks, where the backend fails t
 5. Verify logging and alerting for failed authorization attempts.
 6. Review code to confirm centralized authorization enforcement.
 
----
 
 ## Conclusion
 
 This incident highlights the importance of strict server-side authorization enforcement in multi-tenant platforms. A structured response, thorough investigation, and disciplined validation process are essential to prevent recurrence and maintain customer trust.
-
